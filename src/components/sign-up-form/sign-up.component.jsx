@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { createAuthUserWithEmailAndPassword } from "../../utilities/firebase/firebase.utility";
 import { createUserDocumentFromAuth } from "../../utilities/firebase/firebase.utility";
+
 import FormInput from "../form-input/form-input.component";
-import "./sign-up.styles.scss";
 import Button from "../button/button.component";
 
-const defaulFormFields = {
+import "./sign-up.styles.scss";
+
+const defaultFormFields = {
   displayName: "",
   email: "",
   password: "",
@@ -13,7 +15,7 @@ const defaulFormFields = {
 };
 
 const SignUp = () => {
-  const [formFields, setFormFields] = useState(defaulFormFields);
+  const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
   const handleChange = (event) => {
@@ -21,6 +23,7 @@ const SignUp = () => {
 
     setFormFields({ ...formFields, [name]: value });
   };
+
   let formProps = [];
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,7 +31,7 @@ const SignUp = () => {
     // ----
     const formData = new FormData(event.target);
     formProps = Object.fromEntries(formData);
-    console.log("form", formProps);
+
     const { email, displayName, password, confirmPassword } = formProps;
     // ----
 
@@ -46,11 +49,11 @@ const SignUp = () => {
         displayName,
       });
 
-      setFormFields(defaulFormFields);
+      setFormFields(defaultFormFields);
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot Sign Up! Email is already in use");
-        setFormFields(defaulFormFields);
+        setFormFields(defaultFormFields);
         return;
       }
       console.log(error);
