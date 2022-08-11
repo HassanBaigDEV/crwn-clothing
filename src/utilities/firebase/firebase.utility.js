@@ -76,3 +76,5 @@ export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangeHandler = (callback) =>
   onAuthStateChanged(auth, callback);
+
+  
