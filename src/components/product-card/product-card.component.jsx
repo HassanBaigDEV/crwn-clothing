@@ -11,7 +11,6 @@ const ProductCard = ({ product }) => {
 
   const addProductToCart = () => {
     addItemToCart(product);
-    console.log(cartItems);
   };
   return (
     <div className="product-card-container">
