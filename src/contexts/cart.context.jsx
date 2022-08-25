@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { createContext, useState, useContext } from "react";
+import { createContext, useState} from "react";
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -14,7 +14,7 @@ const addCartItem = (cartItems, productToAdd) => {
     );
   }
 
-  return [...cartItems, { ...productToAdd, quantity: 1 }];
+  return [...cartItems, { ...productToAdd, quantity: 1 }]; 
 };
 
 const removeFullCartItem = (cartItems, productToRemove) => {
