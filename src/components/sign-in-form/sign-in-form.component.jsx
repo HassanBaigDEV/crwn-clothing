@@ -32,6 +32,7 @@ const SignInForm = () => {
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
       setFormFields(defaultFormFields);
+
     } catch (error) {
       console.log(error);
     }

@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { Fragment, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 import { UserContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.context";
@@ -22,10 +22,6 @@ const Navigation = () => {
     await signOutUser();
   };
 
-  const navigate = useNavigate();
-  
-    currentUser && navigate('/');
-  
 
   return (
     <Fragment>
