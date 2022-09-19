@@ -16,12 +16,12 @@ const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
-const removeFullCartItem = (cartItems, productToRemove) => {
-  const newCartItems = cartItems.filter(
-    (cartItem) => cartItem.id !== productToRemove.id
-  );
-   return setCartItem(newCartItems);
-};
+// const removeFullCartItem = (cartItems, productToRemove) => {
+//   const newCartItems = cartItems.filter(
+//     (cartItem) => cartItem.id !== productToRemove.id
+//   );
+//    return setCartItem(newCartItems);
+// };
 
 const removeCartItem = (cartItems, productToRemove) => {
   if (productToRemove.quantity === 1) {
@@ -39,18 +39,19 @@ const removeCartItem = (cartItems, productToRemove) => {
 
 export const addItemToCart = (cartItems, productToAdd) => {
   const newCartItems = addCartItem(cartItems, productToAdd);
-   return setCartItem(newCartItems);
+  return setCartItem(newCartItems);
 };
 
 export const removeItemFromCart = (cartItems, productToRemove) => {
   const newCartItems = removeCartItem(cartItems, productToRemove);
-   return setCartItem(newCartItems);
+  return setCartItem(newCartItems);
 };
 
 export const removeFullItemFromCart = (cartItems, productToRemove) => {
   // setCartItems(removeFullCartItem(cartItems, productToRemove));
   const newCartItems = cartItems.filter(
-    (cartItem) => cartItem.id !== productToRemove.id)
+    (cartItem) => cartItem.id !== productToRemove.id
+  );
   return setCartItem(newCartItems);
 };
 
