@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { useSelector } from "react-redux";
 
 // import { UserContext } from "../../contexts/user.context";
@@ -22,12 +22,11 @@ const Navigation = () => {
 
   const currentUser = useSelector(selectCurrentUser);
   // const { isCartOpen } = useSelector(selectIsCartOpen);
- const  isCartOpen  = useSelector(selectIsCartOpen);
+  const isCartOpen = useSelector(selectIsCartOpen);
 
   const signOutHandler = async () => {
     await signOutUser();
   };
-
 
   return (
     <Fragment>

@@ -1,7 +1,5 @@
 import Button from "../button/button.component";
 
-import { useContext } from "react";
-import { CartContext } from "../../contexts/cart.context";
 import { addItemToCart } from '../../store/cart/cartActions'
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from '../../store/cart/cartSelector'
