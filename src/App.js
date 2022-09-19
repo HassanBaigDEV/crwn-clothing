@@ -8,14 +8,16 @@ import SignIn from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
 import { setCurrentUser } from './store/user/userSlice'
+import { setCategoriesMap } from "./store/categories/categoriesSlice";
 
 import {
   onAuthStateChangeHandler,
   createUserDocumentFromAuth,
+  getCategoriesAndDocuments,
 } from "./utilities/firebase/firebase.utility";
 
 const App = () => {
-
+  
   const dispatch = useDispatch();
    useEffect(() => {
      const unsubscribe = onAuthStateChangeHandler((user) => {
@@ -27,6 +29,16 @@ const App = () => {
 
      return unsubscribe;
    }, [dispatch]);
+  
+  
+  useEffect(() => {
+    const getCategoriesMap = async () => {
+      const categoryMap = await getCategoriesAndDocuments();
+      dispatch(setCategoriesMap(categoryMap));
+    };
+    getCategoriesMap();
+  }, [dispatch]);
+  
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>

@@ -4,7 +4,7 @@ const userSlice = createSlice({
   name: "user",
   initialState: { currentUser: null },
   reducers: {
-      setCurrentUser: (state, action) => {
+    setCurrentUser: (state, action) => {
       const { payload } = action;
       console.log(payload);
       return {
@@ -19,8 +19,6 @@ export const { setCurrentUser } = userSlice.actions;
 
 export default userSlice.reducer;
 
-
-
 //.........................//
 
 // const USER_ACTION_TYPES = {
@@ -28,7 +26,7 @@ export default userSlice.reducer;
 // };
 
 // const INITIAL_STATE = {
-//   currentUser: null,
+//   : null,
 // };
 
 // export const userReducer = (state = INITIAL_STATE, action) => {

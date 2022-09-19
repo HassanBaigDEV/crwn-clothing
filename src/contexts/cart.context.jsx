@@ -41,11 +41,11 @@ const removeCartItem = (cartItems, productToRemove) => {
 
 export const CartContext = createContext({
   isCartOpen: false,
-  setIsCartOpen: () => {},
   cartItems: [],
-  addItemToCart: () => {},
   cartCount: 0,
   total:0,
+  setIsCartOpen: () => {},
+  addItemToCart: () => {},
   removeItemFromCart: () => {},
   removeFullItemFromCart:()=>{},
 });
