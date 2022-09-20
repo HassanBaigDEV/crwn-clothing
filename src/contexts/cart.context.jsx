@@ -1,5 +1,5 @@
-import { useEffect,useReducer } from "react";
-import { createContext, useState} from "react";
+import { useReducer } from "react";
+import { createContext} from "react";
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(

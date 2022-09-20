@@ -6,14 +6,20 @@ import { Provider } from "react-redux";
 
 import App from "./App";
 
+
 import { store, persistor } from "./store/store";
 import { PersistGate } from "redux-persist/es/integration/react";
+
+import { store,persistor } from "./store/store";
+import { PersistGate} from 'redux-persist/integration/react'
+
 
 import "./index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+
     {/* <UserProvider>
         <CategoriesProvider>
       <CartContextPrvider> */}
@@ -27,6 +33,15 @@ root.render(
     {/* </CartContextProvider>
         </CategoriesProvider>
       </UserProvider> */}
+
+    <BrowserRouter>
+      <PersistGate persistor={ persistor}>
+            <Provider store={store}>
+              <App />
+            </Provider>
+            </PersistGate>
+    </BrowserRouter>
+
   </React.StrictMode>
 );
 

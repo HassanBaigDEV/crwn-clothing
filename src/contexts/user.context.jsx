@@ -1,11 +1,11 @@
-import { createContext, useState, useEffect, useReducer } from "react";
+import { createContext ,useReducer } from "react";
 
 // import { useNavigate } from "react-router-dom";
 
-import {
-  onAuthStateChangeHandler,
-  createUserDocumentFromAuth,
-} from "../utilities/firebase/firebase.utility";
+// import {
+//   onAuthStateChangeHandler,
+//   createUserDocumentFromAuth,
+// } from "../utilities/firebase/firebase.utility";
 
 export const UserContext = createContext({
   currentUser: null,

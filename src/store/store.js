@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+
 import {
   persistStore,
   persistReducer,
@@ -16,6 +17,22 @@ import cartReducer from "./cart/cartSlice";
 import thunk from "redux-thunk";
 
 import rootReducer from "./rootReducer";
+=======
+import { persistStore,persistReducer} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
+import logger from "redux-logger";
+
+import { rootReducer } from "./rootReducer";
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  blacklist:['user']
+}
+
+const persistedReducer= persistReducer(persistConfig,rootReducer)
+
 
 const persistConfig = {
   key: "root",
@@ -32,6 +49,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+
   devTools: process.env.NODE_ENV,
   // middleware:[thunk]
   middleware: (getDefaultMiddleware) =>
@@ -41,3 +59,11 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+=======
+  middleware: (getDefaultMiddleware) =>
+  getDefaultMiddleware({
+    serializableCheck: false,
+  }).concat(logger),
+});
+
+export const persistor = persistStore(store);  
