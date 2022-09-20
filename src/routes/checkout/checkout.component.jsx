@@ -3,9 +3,6 @@ import "./checkout.styles.scss";
 
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
-import {
-  selectCartItems,
-  selectCartTotal,
 
 import {
   selectCartItems,
@@ -19,7 +16,6 @@ import { useSelector } from "react-redux";
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
 
-  const total = useSelector(selectCartTotal);
 
   const total = useSelector(selectCartCount);
 
