@@ -4,8 +4,10 @@ import cartReducer from "./cart/cartSlice";
 import { combineReducers } from "redux";
 
 
-export const rootReducer = combineReducers({
-    user: userReducer,
-    categories: categoriesReducer,
-    cart: cartReducer,
+const rootReducer = combineReducers({
+  user: userReducer,
+  categories: categoriesReducer,
+  cart: cartReducer,
 });
+
+export default rootReducer;
