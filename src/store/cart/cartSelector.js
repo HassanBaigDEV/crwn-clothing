@@ -1,6 +1,8 @@
-import { createSelector } from 'reselect';
+import { createSelector } from "@reduxjs/toolkit";
 
-const selectCartReducer = (state) => state.cart;
+const selectSelf = (state) => state;
+
+const selectCartReducer = createSelector(selectSelf, (state) => state.cart);
 
 export const selectIsCartOpen = createSelector(
   [selectCartReducer],

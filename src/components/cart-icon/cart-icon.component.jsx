@@ -15,7 +15,7 @@ import "./cart-icon.styles.scss";
 const Carticon = () => {
   const dispatch = useDispatch();
   const isCartOpen = useSelector(selectIsCartOpen);
-  const cartCount  = useSelector(selectCartCount);
+  const cartCount = useSelector(selectCartCount);
 
   // const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
   const CartClickHandler = () => {
