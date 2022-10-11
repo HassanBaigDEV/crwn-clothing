@@ -10,6 +10,8 @@ import { persistStore, persistReducer } from "redux-persist";
 
 import { rootReducer } from "./rootReducer";
 
+import thunk from "redux-thunk";
+
 const persistConfig = {
   key: "root",
   storage,
@@ -24,7 +26,8 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-    }).concat(logger),
+      thunk: {},
+    }).concat(logger),thunk
 });
 
 export const persistor = persistStore(store);

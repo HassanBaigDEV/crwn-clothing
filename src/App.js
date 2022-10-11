@@ -8,7 +8,7 @@ import SignIn from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
 import { setCurrentUser } from './store/user/userSlice'
-import { setCategoriesMap } from "./store/categories/categoriesSlice";
+import { fetchCategories, setCategoriesMap } from "./store/categories/categoriesSlice";
 
 import {
   onAuthStateChangeHandler,
@@ -32,11 +32,12 @@ const App = () => {
   
   
   useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocuments();
-      dispatch(setCategoriesMap(categoryMap));
-    };
-    getCategoriesMap();
+    // const getCategoriesMap = async () => {
+    //   const categoryMap = await getCategoriesAndDocuments();
+    //   dispatch(setCategoriesMap(categoryMap));
+    // };
+    // getCategoriesMap();
+    dispatch(fetchCategories());
   }, [dispatch]);
   
   return (
